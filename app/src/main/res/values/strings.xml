@@ -10,5 +10,7 @@
     <string name="downloading">下载中 %1$d%%</string>
     <string name="download_waiting">等待下载…</string>
     <string name="download_failed">下载失败，请重试</string>
+    <string name="error_no_space">存储空间不足，请清理后再下载</string>
+    <string name="error_bad_link">这个应用的下载链接无效</string>
     <string name="install_prompt">正在打开安装程序…</string>
 </resources>

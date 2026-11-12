@@ -76,6 +76,9 @@ class MainActivity : AppCompatActivity(), DownloadHelper.Listener {
         downloadHelper.listener = this
         downloadHelper.register()
 
+        // 启动时清一次 7 天前的旧安装包（后台跑，不挡界面）
+        ioExecutor.execute { downloadHelper.cleanupOldFiles() }
+
         loadCatalog()
     }
 
@@ -92,6 +95,7 @@ class MainActivity : AppCompatActivity(), DownloadHelper.Listener {
     override fun onDestroy() {
         super.onDestroy()
         downloadHelper.unregister()
+        downloadHelper.shutdown()
         ioExecutor.shutdown()
     }
 
@@ -106,9 +110,8 @@ class MainActivity : AppCompatActivity(), DownloadHelper.Listener {
         ioExecutor.execute {
             try {
                 val catalog = CatalogClient.fetch()
-                val apps = (catalog.apps ?: emptyList())
-                    .filter { !it.url.isNullOrBlank() }
-                    .sortedBy { it.displayName }
+                // CatalogParser 已跳过缺 package/url 的坏条目，这里只排序
+                val apps = (catalog.apps ?: emptyList()).sortedBy { it.displayName }
                 val categories =
                     catalog.categories ?: apps.mapNotNull { it.category }.distinct()
                 runOnUiThread {
@@ -149,14 +152,17 @@ class MainActivity : AppCompatActivity(), DownloadHelper.Listener {
     }
 
     private fun onAppClicked(app: AppInfo) {
-        if (downloadHelper.isDownloading(app)) {
-            Toast.makeText(this, R.string.download_waiting, Toast.LENGTH_SHORT).show()
-            return
-        }
-        if (downloadHelper.download(app)) {
-            appAdapter.setStatus(app.packageName, getString(R.string.download_waiting))
-        } else {
-            Toast.makeText(this, R.string.download_failed, Toast.LENGTH_SHORT).show()
+        when (downloadHelper.download(app)) {
+            DownloadHelper.StartResult.Started ->
+                appAdapter.setStatus(app.packageName, getString(R.string.download_waiting))
+            DownloadHelper.StartResult.AlreadyDownloading ->
+                Toast.makeText(this, R.string.download_waiting, Toast.LENGTH_SHORT).show()
+            DownloadHelper.StartResult.NoSpace ->
+                Toast.makeText(this, R.string.error_no_space, Toast.LENGTH_LONG).show()
+            DownloadHelper.StartResult.InvalidUrl ->
+                Toast.makeText(this, R.string.error_bad_link, Toast.LENGTH_LONG).show()
+            DownloadHelper.StartResult.Failed ->
+                Toast.makeText(this, R.string.download_failed, Toast.LENGTH_SHORT).show()
         }
     }
 

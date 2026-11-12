@@ -31,7 +31,7 @@ data class AppInfo(
     val displayName: String
         get() = label?.takeIf { it.isNotBlank() } ?: packageName
 
-    /** 下载保存用的文件名 */
-    val downloadFileName: String
-        get() = file?.takeIf { it.isNotBlank() } ?: "$packageName.apk"
+    // 注意：packageName 在类型上是非空的，但 Gson 反序列化不检查 Kotlin 非空；
+    // 目录解析统一走 CatalogParser，它会跳过缺 package 的条目，保证这里不为 null。
+    // 下载文件名不要直接用 file 字段（可能含路径分隔符/同名），见 FileNameUtils。
 }
