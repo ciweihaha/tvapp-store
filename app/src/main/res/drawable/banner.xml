@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 电视桌面横幅（矢量图，320x180）：蓝色底 + 居中白色电视机 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M0,0 L320,0 L320,180 L0,180 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:pathData="M105,50 L215,50 A8,8 0 0 1 223,58 L223,122 A8,8 0 0 1 215,130 L105,130 A8,8 0 0 1 97,122 L97,58 A8,8 0 0 1 105,50 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M140,68 L180,90 L140,112 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="6"
+        android:pathData="M160,130 L160,142 M142,142 L178,142" />
+</vector>

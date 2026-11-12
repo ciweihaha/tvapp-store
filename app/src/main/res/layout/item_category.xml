@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 分类小块：选中态为蓝色，焦点态有白边框 -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chipText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/chip_background"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:paddingStart="20dp"
+    android:paddingTop="10dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="10dp"
+    android:textColor="@color/text_primary"
+    android:textSize="16sp" />

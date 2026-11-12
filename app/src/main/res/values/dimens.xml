@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="app_icon_size">72dp</dimen>
+    <dimen name="item_padding">12dp</dimen>
+    <dimen name="title_text_size">28sp</dimen>
+    <dimen name="app_name_text_size">16sp</dimen>
+    <dimen name="app_meta_text_size">13sp</dimen>
+</resources>

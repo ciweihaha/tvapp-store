@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 深色主题，适合电视大屏观看 -->
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="surface_focused">#2E4A6B</color>
+    <color name="accent">#4DA3FF</color>
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B0B0</color>
+    <color name="chip_background">#2A2A2A</color>
+    <color name="chip_selected">#1565C0</color>
+    <color name="focus_border">#FFFFFF</color>
+</resources>

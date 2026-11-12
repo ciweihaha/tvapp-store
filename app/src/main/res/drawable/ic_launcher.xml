@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 启动图标（矢量图）：蓝色圆角方底 + 白色电视机 + 播放三角 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="192dp"
+    android:height="192dp"
+    android:viewportWidth="192"
+    android:viewportHeight="192">
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M32,16 L160,16 A16,16 0 0 1 176,32 L176,160 A16,16 0 0 1 160,176 L32,176 A16,16 0 0 1 16,160 L16,32 A16,16 0 0 1 32,16 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:pathData="M52,58 L140,58 A8,8 0 0 1 148,66 L148,118 A8,8 0 0 1 140,126 L52,126 A8,8 0 0 1 44,118 L44,66 A8,8 0 0 1 52,58 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M86,78 L114,92 L86,106 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeWidth="6"
+        android:pathData="M96,126 L96,138 M80,138 L112,138" />
+</vector>
